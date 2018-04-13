@@ -2,7 +2,7 @@ import React from 'react';
 
 
 const DataGrid = () => (
-  <div className="clearfix text-left border border-primary">
+  <div className="col-sm col-lg-12 text-left border border-primary">
     <div className="container">
       <div className="row">
         <div className="col-sm">Name</div>

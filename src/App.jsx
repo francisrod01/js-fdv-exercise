@@ -5,7 +5,7 @@ import './statics/styles/App.css';
 
 import Header from './components/Header';
 import GridLeft from './components/GridLeft';
-import DataGrid from './components/DataGrid';
+import GridRight from './components/GridRight';
 
 
 const App = () => (
@@ -14,7 +14,7 @@ const App = () => (
 
     <div className="d-flex mt-2 justify-content-center App-intro">
       <GridLeft />
-      <DataGrid />
+      <GridRight />
     </div>
 
   </div>
