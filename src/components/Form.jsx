@@ -2,43 +2,47 @@ import React from 'react';
 
 
 const Form = () => (
-  <div className="">
+  <div className="float-left col-sm-5 col-lg-5">
     <form>
       <div className="form-group row">
-        <label htmlFor="name" className="col-sm-2 col-form-label">Name:</label>
+        <label htmlFor="name" className="col-sm-4 col-lg-2 col-form-label">Name:</label>
 
         <div className="col-sm-10">
-          <input type="text" className="form-control" id="name" name="name" placeholder="name here..." />
+          <input type="text" className="form-control border border-primary" id="name" name="name" placeholder="name here..." />
         </div>
       </div>
 
       <div className="form-group row">
-        <label htmlFor="surname" className="col-sm-2 col-form-label">Surname:</label>
+        <label htmlFor="surname" className="col-sm-4 col-lg-2 col-form-label">Surname:</label>
 
         <div className="col-sm-10">
-          <input type="text" className="form-control" id="surname" name="surname" placeholder="surname here..." />
+          <input type="text" className="form-control border border-primary" id="surname" name="surname" placeholder="surname here..." />
         </div>
       </div>
 
       <div className="form-group row">
-        <label htmlFor="countries" className="col-sm-2 col-form-label">Countries:</label>
+        <label htmlFor="countries" className="col-sm-4 col-lg-2 col-form-label">Countries:</label>
 
         <div className="col-sm-10">
-          <select className="form-control" id="countries" name="countries">
+          <select className="form-control border border-primary" id="countries" name="countries">
             <option selected>Select a country...</option>
           </select>
         </div>
       </div>
 
       <div className="form-group row">
-        <label htmlFor="birthday" className="col-sm-2 col-form-label">Birthday</label>
+        <label htmlFor="birthday" className="col-sm-4 col-lg-2 col-form-label">Birthday</label>
 
         <div className="col-sm-10">
-          <input type="text" className="form-control" id="birthday" name="birthday" placeholder="mm/dd/yyyy" />
+          <input type="text" className="form-control border border-primary" id="birthday" name="birthday" placeholder="mm/dd/yyyy" />
         </div>
       </div>
 
-      <button type="submit" className="btn btn-primary">Save</button>
+      <div className="form-group row">
+        <div className="col-sm-10 col-lg-12">
+          <button type="submit" className="btn btn-default  border border-primary float-right">Save</button>
+        </div>
+      </div>
     </form>
   </div>
 );

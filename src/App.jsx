@@ -12,7 +12,7 @@ const App = () => (
   <div className="App">
     <Header />
 
-    <div className="App-intro">
+    <div className="d-flex mt-2 justify-content-center App-intro">
       <Form />
 
       <DataGrid />
