@@ -2,7 +2,7 @@ import React from 'react';
 
 
 const Form = () => (
-  <div className="App-intro">
+  <div className="">
     <form>
       <div className="form-group row">
         <label htmlFor="name" className="col-sm-2 col-form-label">Name:</label>
