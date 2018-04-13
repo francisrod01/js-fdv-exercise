@@ -5,9 +5,9 @@ const DataGrid = () => (
   <div className="col-sm col-lg-12 text-left border border-primary">
     <div className="container">
       <div className="row">
-        <div className="col-sm">Name</div>
-        <div className="col-sm">Country</div>
-        <div className="col-sm">Birthday</div>
+        <div className="col-sm font-weight-bold">Name</div>
+        <div className="col-sm font-weight-bold">Country</div>
+        <div className="col-sm font-weight-bold">Birthday</div>
       </div>
       <div className="row">
         <div className="col-sm">Mariano Suarez</div>
