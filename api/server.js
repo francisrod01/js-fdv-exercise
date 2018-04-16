@@ -2,6 +2,7 @@ const express = require('express');
 
 const app = express();
 const bodyParser = require('body-parser');
+const database = require('./database');
 
 // Log requests to console.
 const env = process.env.NODE_ENV || 'dev';
@@ -29,5 +30,16 @@ app.use('/api', router);
 
 const port = process.env.PORT || 5000;
 
-// eslint-disable-next-line no-console
-app.listen(port, () => console.log('[Express] Magic happens on port : ', port));
+// Running connection to database.
+const dbConnectMode = (env === 'dev') ? database.modeTest : database.modeProd;
+database.connect(dbConnectMode, (err) => {
+  if (err) {
+    // eslint-disable-next-line no-console
+    console.error('[Database] Unable to connect to database.');
+    process.exit(1);
+  }
+
+  // Start the server.
+  // eslint-disable-next-line no-console
+  app.listen(port, () => console.log('[Express] Magic happens on port : ', port));
+});
