@@ -1,0 +1,24 @@
+{
+  "name": "api",
+  "version": "0.0.1",
+  "description": "JavaScript Intive FDV REST API",
+  "main": "server.js",
+  "repository": "https://github.com/francisrod01/js-fdv-exercise/tree/master/api",
+  "author": "Francis Rodrigues",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "start": "node server.js",
+    "start-dev": "./node_modules/eslint/bin/eslint.js . && nodemon server.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.3"
+  },
+  "devDependencies": {
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.11.0",
+    "nodemon": "^1.17.3"
+  }
+}
