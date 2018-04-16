@@ -46,6 +46,14 @@ Note that the development build is not optimized.
 To create a production build, use yarn build.
 ```
 
+## Using env variables ##
+
+To run this web app using env variables create a `.dev.env` in the root project and type a API url:
+
+```env
+API_URL=http://localhost:5000/api/
+```
+
 ## References ##
 
 * [Pass eslint html-has-for with htmlFor in React][3]
