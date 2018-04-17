@@ -5,7 +5,7 @@ const state = {
   mode: null
 };
 
-const CONN_NAME = 'ExpressApi';
+const CONN_NAME = 'FDVExpressApi';
 const CONN_PORT = 27017;
 const CONN_URI = `mongodb://localhost:${CONN_PORT}/${CONN_NAME}`;
 
