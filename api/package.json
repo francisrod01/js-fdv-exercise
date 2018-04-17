@@ -9,7 +9,10 @@
   "private": false,
   "scripts": {
     "start": "node server.js",
-    "start-dev": "./node_modules/eslint/bin/eslint.js . && nodemon server.js"
+    "start-dev": "./node_modules/eslint/bin/eslint.js . && nodemon server.js",
+    "test": "jest",
+    "testw": "jest --watch",
+    "testc": "jest --coverage"
   },
   "dependencies": {
     "bluebird": "^3.5.1",
@@ -21,7 +24,15 @@
     "eslint": "^4.19.1",
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-import": "^2.11.0",
+    "jest": "^22.4.3",
     "morgan": "^1.9.0",
-    "nodemon": "^1.17.3"
+    "nodemon": "^1.17.3",
+    "supertest": "^3.0.0"
+  },
+  "jest": {
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      ".history/"
+    ]
   }
 }
