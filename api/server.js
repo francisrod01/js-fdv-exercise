@@ -23,6 +23,7 @@ const router = express.Router();
 
 // Load our routes.
 require('./routes/index')(router);
+require('./routes/users')(router);
 
 // Register our routes.
 app.use('/api', router);

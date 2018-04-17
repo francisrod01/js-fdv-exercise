@@ -16,7 +16,8 @@
             "never"
         ],
         "no-unused-vars": [
-            "error", { "args": "none" }
-        ]
+            "warn", { "args": "none" }
+        ],
+        "no-param-reassign": 0
     }
 }
