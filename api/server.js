@@ -25,6 +25,11 @@ const router = express.Router();
 require('./routes/index')(router);
 require('./routes/users')(router);
 
+// CORS middleware.
+const allowCrossDomain = require('./middlewares/cors');
+
+app.use(allowCrossDomain);
+
 // Register our routes.
 app.use('/api', router);
 
