@@ -23,7 +23,6 @@ Author: [Francis Rodrigues][2]
   * Bootstrap 4
   * EcmaScript 6
   * EsLint
-  * Jest test
 
 ## How to run in development machine ##
 
@@ -55,7 +54,7 @@ To run this web app using env variables create a `.dev.env` in the root project 
 API_URL=http://localhost:5000/api/
 ```
 
-## Rest Countries ##
+## RESTful Countries ##
 
 Get information about countries via a RESTful API.
 
@@ -79,5 +78,5 @@ MIT
   [4]: https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/label-has-for.mdz
   [5]: https://github.com/evcohen/eslint-plugin-jsx-a11y
   [6]: https://date-fns.org/
-  [7]: https://restcountries.eu/rest/v2/all
+  [7]: https://restcountries.eu/
   [8]: https://github.com/apilayer/restcountries
