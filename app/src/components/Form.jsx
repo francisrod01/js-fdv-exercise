@@ -28,13 +28,17 @@ class Form extends Component {
 
     addItem(dataObject)
       .then((res) => {
-        if (res.data) loadUsers();
+        if (res.data) {
+          document.getElementById('myForm').reset();
+
+          loadUsers();
+        }
       });
   }
   render() {
     return (
       <div className="col-lg-12">
-        <form onSubmit={data => this.onHandleSubmit(data)}>
+        <form id="myForm" onSubmit={data => this.onHandleSubmit(data)}>
           <div className="form-group row">
             <label htmlFor="name" className="col-3 col-form-label">Name:</label>
 
