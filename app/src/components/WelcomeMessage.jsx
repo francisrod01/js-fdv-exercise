@@ -1,17 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-
-const getCountryInfo = (country, param) => {
-  const extracted = country[param] || 'Null';
-
-  return extracted;
-};
+import { getCountryInfo, calculateAge, getDateFormatted } from '../utils';
 
 
-const WelcomeMessage = ({
-  user, user: { name, country, birthday }, calculateAge, getDateFormatted,
-}) => (
+const WelcomeMessage = ({ user, user: { name, country, birthday } }) => (
   <div className="m-sm-2">
     <div className="alert alert-success">
       {
@@ -28,11 +21,9 @@ const WelcomeMessage = ({
 WelcomeMessage.propTypes = {
   user: PropTypes.shape({
     name: PropTypes.string,
-    country: PropTypes.string,
+    country: PropTypes.object,
     birthday: PropTypes.string,
   }).isRequired,
-  calculateAge: PropTypes.func.isRequired,
-  getDateFormatted: PropTypes.func.isRequired,
 };
 
 

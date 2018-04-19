@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+import { convertToDate } from '../utils';
 import countriesApi from '../countriesApi';
 
 
@@ -49,7 +50,7 @@ class Form extends Component {
   onHandleSubmit(event) {
     event.preventDefault();
 
-    const { addItem, loadUsers, convertToDate } = this.props;
+    const { addItem, loadUsers } = this.props;
     const { selectedCountry } = this.state;
     const { name, surname, birthday } = event.target;
 
@@ -142,7 +143,6 @@ class Form extends Component {
 Form.propTypes = {
   addItem: PropTypes.func.isRequired,
   loadUsers: PropTypes.func.isRequired,
-  convertToDate: PropTypes.func.isRequired,
 };
 
 

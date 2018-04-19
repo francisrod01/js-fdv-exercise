@@ -1,12 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-
-const getCountryInfo = (country, param) => {
-  const extracted = country[param] || 'Null';
-
-  return extracted;
-};
+import { getCountryInfo, getDateFormatted } from '../utils';
 
 
 class DataGrid extends Component {
@@ -16,7 +11,7 @@ class DataGrid extends Component {
     loadUsers();
   }
   renderContentGrid() {
-    const { onClickGridItem, getDateFormatted } = this.props;
+    const { onClickGridItem } = this.props;
     return (
       <div className="container">
         <div className="row">
@@ -58,7 +53,6 @@ class DataGrid extends Component {
 DataGrid.propTypes = {
   loadUsers: PropTypes.func.isRequired,
   onClickGridItem: PropTypes.func.isRequired,
-  getDateFormatted: PropTypes.func.isRequired,
 
   users: PropTypes.instanceOf(Array),
 };
