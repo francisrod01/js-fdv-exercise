@@ -20,8 +20,9 @@ Author: [Francis Rodrigues][2]
   * Thinking in Component Structure
   * Airbnb JavaScript, React/JSX Style Guide
   * ReactJS
+  * Bootstrap 4
   * EcmaScript 6
-  * EcmaScript Lint
+  * EsLint
   * Jest test
 
 ## How to run in development machine ##
@@ -56,7 +57,10 @@ API_URL=http://localhost:5000/api/
 
 ## References ##
 
-* [Pass eslint html-has-for with htmlFor in React][3]
+* [Bootstrap - Build responsive, mobile-first projects on the web][3]
+* [Pass eslint html-has-for with htmlFor in React][4]
+* [eslint-plugin-jsx-a11y - Static AST checker for a11y rules on JSX elements][5]
+* [Date-fns - Modern JavaScript date utility library][6]
 
 ## License ##
 
@@ -64,4 +68,7 @@ MIT
 
   [1]: http://intive-fdv.com/
   [2]: https://github.com/francisrod01/
-  [3]: https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/label-has-for.md
+  [3]: https://getbootstrap.com/
+  [4]: https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/label-has-for.mdz
+  [5]: https://github.com/evcohen/eslint-plugin-jsx-a11y
+  [6]: https://date-fns.org/
