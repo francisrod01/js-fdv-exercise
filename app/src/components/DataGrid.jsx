@@ -2,6 +2,13 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 
+const getCountryInfo = (country, param) => {
+  const extracted = country[param] || 'Null';
+
+  return extracted;
+};
+
+
 class DataGrid extends Component {
   componentWillMount() {
     const { loadUsers } = this.props;
@@ -28,7 +35,7 @@ class DataGrid extends Component {
                 tabIndex={-1}
               >
                 <div className="border col-4 col-sm">{`${user.name} ${user.surname}`}</div>
-                <div className="border col-4 col-sm">{ user.country }</div>
+                <div className="border col-4 col-sm">{ getCountryInfo(user.country, 'name') }</div>
                 <div className="border col-4 col-sm">{ getDateFormatted(user.birthday, 'MM/DD/YYYY') }</div>
 
                 <div className="w-100" />

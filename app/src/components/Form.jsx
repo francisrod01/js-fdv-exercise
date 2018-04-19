@@ -1,28 +1,62 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+import countriesApi from '../countriesApi';
+
+
+const loadCountries = () => countriesApi.loadAllCountries();
+
+const checkHasCountries = (arrayList) => {
+  const hasItems = Object.keys(arrayList).length > 0;
+
+  return hasItems;
+};
+
+const isCountryItem = (country, selectedItem) => country.alpha3Code === selectedItem;
+// eslint-disable-next-line arrow-body-style
+const findCountry = (countriesArray, selectedItem) => {
+  return countriesArray.find(country => isCountryItem(country, selectedItem));
+};
+
 
 class Form extends Component {
   constructor(props) {
     super(props);
 
+    this.state = {
+      countriesList: [],
+      selectedCountry: null,
+    };
+
     // Bindable methods.
     this.onHandleSubmit = this.onHandleSubmit.bind(this);
+  }
+  componentWillMount() {
+    loadCountries()
+      .then((res) => {
+        this.setState({ countriesList: res.data });
+      });
+  }
+  // eslint-disable-next-line class-methods-use-this
+  onSelectCountry(event) {
+    const { countriesList } = this.state;
+    const selectedValue = event.target.value;
+    const selectedCountry = findCountry(countriesList, selectedValue);
+
+    this.setState({ selectedCountry });
   }
   // eslint-disable-next-line class-methods-use-this
   onHandleSubmit(event) {
     event.preventDefault();
 
     const { addItem, loadUsers, convertToDate } = this.props;
-
-    const {
-      name, surname, country, birthday,
-    } = event.target;
+    const { selectedCountry } = this.state;
+    const { name, surname, birthday } = event.target;
 
     const dataObject = {
       name: name.value,
       surname: surname.value,
-      country: country.value,
+      country: selectedCountry,
       birthday: convertToDate(birthday.value),
     };
 
@@ -35,7 +69,28 @@ class Form extends Component {
         }
       });
   }
+  renderDropdownCountries(countriesList) {
+    return (
+      <select
+        className="form-control form-control-sm border border-primary"
+        id="country"
+        name="country"
+        onChange={item => this.onSelectCountry(item)}
+      >
+        <option selected>Select a country...</option>
+        { Object.values(countriesList).map(country => (
+          <option
+            key={country.alpha3Code}
+            value={country.alpha3Code}
+          >
+            {country.name}
+          </option>
+        )) }
+      </select>
+    );
+  }
   render() {
+    const { countriesList } = this.state;
     return (
       <div className="col-lg-12">
         <form id="myForm" onSubmit={data => this.onHandleSubmit(data)}>
@@ -59,9 +114,9 @@ class Form extends Component {
             <label htmlFor="countries" className="col-3 col-form-label">Countries:</label>
 
             <div className="col-sm-11 col-lg-8">
-              <select className="form-control form-control-sm border border-primary" id="country" name="country">
-                <option selected>Select a country...</option>
-              </select>
+              {
+                checkHasCountries(countriesList) && this.renderDropdownCountries(countriesList)
+              }
             </div>
           </div>
 

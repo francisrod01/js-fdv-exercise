@@ -55,6 +55,13 @@ To run this web app using env variables create a `.dev.env` in the root project 
 API_URL=http://localhost:5000/api/
 ```
 
+## Rest Countries ##
+
+Get information about countries via a RESTful API.
+
+* [Doc here][7]
+* [View on Github][8]
+
 ## References ##
 
 * [Bootstrap - Build responsive, mobile-first projects on the web][3]
@@ -72,3 +79,5 @@ MIT
   [4]: https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/label-has-for.mdz
   [5]: https://github.com/evcohen/eslint-plugin-jsx-a11y
   [6]: https://date-fns.org/
+  [7]: https://restcountries.eu/rest/v2/all
+  [8]: https://github.com/apilayer/restcountries

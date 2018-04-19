@@ -2,6 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 
+const getCountryInfo = (country, param) => {
+  const extracted = country[param] || 'Null';
+
+  return extracted;
+};
+
+
 const WelcomeMessage = ({
   user, user: { name, country, birthday }, calculateAge, getDateFormatted,
 }) => (
@@ -10,7 +17,7 @@ const WelcomeMessage = ({
       {
         !!user &&
           `Hello ${name}
-          from ${country}
+          from ${getCountryInfo(country, 'name')}
           of ${getDateFormatted(birthday, 'MMMM')} 
           you will have ${calculateAge(birthday)} years.`
       }
