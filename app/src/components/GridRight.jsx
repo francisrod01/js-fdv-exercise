@@ -6,12 +6,13 @@ import CompleteName from './CompleteName';
 
 
 const GridRight = ({
-  loadUsers, onClickGridItem, user, users,
+  loadUsers, onClickGridItem, getDateFormatted, user, users,
 }) => (
   <div className="flex-column d-flex align-items-stretch">
     <DataGrid
       loadUsers={loadUsers}
       onClickGridItem={onClickGridItem}
+      getDateFormatted={getDateFormatted}
 
       users={users}
     />
@@ -25,6 +26,7 @@ const GridRight = ({
 GridRight.propTypes = {
   loadUsers: PropTypes.func.isRequired,
   onClickGridItem: PropTypes.func.isRequired,
+  getDateFormatted: PropTypes.func.isRequired,
 
   user: PropTypes.instanceOf(Object),
   users: PropTypes.instanceOf(Array),

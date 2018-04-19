@@ -9,7 +9,7 @@ class DataGrid extends Component {
     loadUsers();
   }
   renderContentGrid() {
-    const { onClickGridItem } = this.props;
+    const { onClickGridItem, getDateFormatted } = this.props;
     return (
       <div className="container">
         <div className="row">
@@ -29,7 +29,7 @@ class DataGrid extends Component {
               >
                 <div className="border col-4 col-sm">{`${user.name} ${user.surname}`}</div>
                 <div className="border col-4 col-sm">{ user.country }</div>
-                <div className="border col-4 col-sm">{ user.birthday }</div>
+                <div className="border col-4 col-sm">{ getDateFormatted(user.birthday, 'MM/DD/YYYY') }</div>
 
                 <div className="w-100" />
               </div>
@@ -51,6 +51,7 @@ class DataGrid extends Component {
 DataGrid.propTypes = {
   loadUsers: PropTypes.func.isRequired,
   onClickGridItem: PropTypes.func.isRequired,
+  getDateFormatted: PropTypes.func.isRequired,
 
   users: PropTypes.instanceOf(Array),
 };

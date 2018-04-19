@@ -13,7 +13,7 @@ class Form extends Component {
   onHandleSubmit(event) {
     event.preventDefault();
 
-    const { addItem, loadUsers } = this.props;
+    const { addItem, loadUsers, convertToDate } = this.props;
 
     const {
       name, surname, country, birthday,
@@ -23,7 +23,7 @@ class Form extends Component {
       name: name.value,
       surname: surname.value,
       country: country.value,
-      birthday: birthday.value,
+      birthday: convertToDate(birthday.value),
     };
 
     addItem(dataObject)
@@ -83,6 +83,7 @@ class Form extends Component {
 Form.propTypes = {
   addItem: PropTypes.func.isRequired,
   loadUsers: PropTypes.func.isRequired,
+  convertToDate: PropTypes.func.isRequired,
 };
 
 
