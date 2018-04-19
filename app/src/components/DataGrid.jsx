@@ -1,25 +1,63 @@
-import React from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 
-const DataGrid = () => (
-  <div className="col-sm col-lg-12 text-left border border-primary">
-    <div className="container">
-      <div className="row">
-        <div className="col-sm font-weight-bold">Name</div>
-        <div className="col-sm font-weight-bold">Country</div>
-        <div className="col-sm font-weight-bold">Birthday</div>
+class DataGrid extends Component {
+  componentWillMount() {
+    const { loadUsers } = this.props;
+
+    loadUsers();
+  }
+  renderContentGrid() {
+    const { onClickGridItem } = this.props;
+    return (
+      <div className="container">
+        <div className="row">
+          <div className="border border-dark col-sm font-weight-bold">Name</div>
+          <div className="border border-dark col-sm font-weight-bold">Country</div>
+          <div className="border border-dark col-sm font-weight-bold">Birthday</div>
+        </div>
+        <div className="row">
+          { Object.values(this.props.users).map(user => (
+            <div className="container" key={user._id}>{/* eslint-disable-line no-underscore-dangle */ }
+              <div
+                className="row"
+                onClick={() => onClickGridItem(user)}
+                onKeyPress={() => null}
+                role="row"
+                tabIndex={-1}
+              >
+                <div className="border col-4 col-sm">{`${user.name} ${user.surname}`}</div>
+                <div className="border col-4 col-sm">{ user.country }</div>
+                <div className="border col-4 col-sm">{ user.birthday }</div>
+
+                <div className="w-100" />
+              </div>
+            </div>
+          )) }
+        </div>
       </div>
-      <div className="row">
-        <div className="col-sm">Mariano Suarez</div>
-        <div className="col-sm">Argentina</div>
-        <div className="col-sm">12/05/1988</div>
-        <div className="w-100" />
-        <div className="col-sm">Jose Kim</div>
-        <div className="col-sm">Argentina</div>
-        <div className="col-sm">11/05/1988</div>
+    );
+  }
+  render() {
+    return (
+      <div className="col-sm col-lg-12 text-left">
+        { this.renderContentGrid() }
       </div>
-    </div>
-  </div>
-);
+    );
+  }
+}
+
+DataGrid.propTypes = {
+  loadUsers: PropTypes.func.isRequired,
+  onClickGridItem: PropTypes.func.isRequired,
+
+  users: PropTypes.instanceOf(Array),
+};
+
+DataGrid.defaultProps = {
+  users: [],
+};
+
 
 export default DataGrid;

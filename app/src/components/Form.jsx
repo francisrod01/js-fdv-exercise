@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-
-import Api from '../api';
+import PropTypes from 'prop-types';
 
 
 class Form extends Component {
@@ -14,6 +13,8 @@ class Form extends Component {
   onHandleSubmit(event) {
     event.preventDefault();
 
+    const { addItem, loadUsers } = this.props;
+
     const {
       name, surname, country, birthday,
     } = event.target;
@@ -25,9 +26,10 @@ class Form extends Component {
       birthday: birthday.value,
     };
 
-    console.log('submit output: ', dataObject); // eslint-disable-line no-console
-
-    Api.addItem(dataObject);
+    addItem(dataObject)
+      .then((res) => {
+        if (res.data) loadUsers();
+      });
   }
   render() {
     return (
@@ -77,5 +79,11 @@ class Form extends Component {
     );
   }
 }
+
+Form.propTypes = {
+  addItem: PropTypes.func.isRequired,
+  loadUsers: PropTypes.func.isRequired,
+};
+
 
 export default Form;
